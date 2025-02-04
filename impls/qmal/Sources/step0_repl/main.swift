@@ -1,32 +1,25 @@
-//  Add the 4 trivial functions `READ`, `EVAL`, `PRINT`, and `rep`
-//  (read-eval-print). `READ`, `EVAL`, and `PRINT` are basically just
-//  stubs that return their first parameter (a string if your target
-//  language is a statically typed) and `rep` calls them in order
-//  passing the return to the input of the next.
 import Foundation
 
-func READ(_ param1: String) -> String {
-    param1
+func READ(_ s: String) -> String {
+    s
 }
 
-func EVAL(_ param1: String) -> String {
-    param1
+func EVAL(_ s: String) -> String {
+    s
 }
 
-func PRINT(_ param1: String) -> String {
-    print("\(param1)")
-
-    return param1
+func PRINT(_ s: String) -> String {
+    s
 }
 
-func rep(_ param1: String) {
-    _ = PRINT(EVAL(READ(param1)))
+func rep(_ s: String) -> String {
+    PRINT(EVAL(READ(s)))
 }
 
 while true {
     print("user> ", terminator: "")
-    if let expr = readLine() {
-        rep(expr)
+    if let input = readLine() {
+        print(rep(input))
     } else {
         print("Error reading input")
     }
