@@ -1,10 +1,13 @@
-// swift-tools-version:5.1
+// swift-tools-version:6.0.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "qmal",
+    platforms: [
+        .macOS(.v15),
+    ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .executable(name: "step0_repl", targets: ["step0_repl"]),
@@ -26,17 +29,17 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(name: "core", dependencies: []),
-        .target(name: "step0_repl", dependencies: ["core"]),
-        .target(name: "step1_read_print", dependencies: ["core"]),
-        .target(name: "step2_eval", dependencies: ["core"]),
-        .target(name: "step3_env", dependencies: ["core"]),
-        .target(name: "step4_if_fn_do", dependencies: ["core"]),
-        .target(name: "step5_tco", dependencies: ["core"]),
-        .target(name: "step6_file", dependencies: ["core"]),
-        .target(name: "step7_quote", dependencies: ["core"]),
-        .target(name: "step8_macros", dependencies: ["core"]),
-        .target(name: "step9_try", dependencies: ["core"]),
-        .target(name: "stepA_mal", dependencies: ["core"])
+        .executableTarget(name: "core", dependencies: []),
+        .executableTarget(name: "step0_repl", dependencies: ["core"]),
+        .executableTarget(name: "step1_read_print", dependencies: ["core"]),
+        .executableTarget(name: "step2_eval", dependencies: ["core"]),
+        .executableTarget(name: "step3_env", dependencies: ["core"]),
+        .executableTarget(name: "step4_if_fn_do", dependencies: ["core"]),
+        .executableTarget(name: "step5_tco", dependencies: ["core"]),
+        .executableTarget(name: "step6_file", dependencies: ["core"]),
+        .executableTarget(name: "step7_quote", dependencies: ["core"]),
+        .executableTarget(name: "step8_macros", dependencies: ["core"]),
+        .executableTarget(name: "step9_try", dependencies: ["core"]),
+        .executableTarget(name: "stepA_mal", dependencies: ["core"])
     ]
 )
